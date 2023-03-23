@@ -13,11 +13,11 @@ int main()
 int MCSS(int a[], int l, int r)
 {
     if (l == r)
-        return a[l];
+        return a[l]; //return max(a[l],0); => 可空子序列
     int mid = (l + r) >> 1;
     int msl = MCSS(a, l, mid);
     int msr = MCSS(a, mid + 1, r);
-    int mbl = min;
+    int mbl = min; //int mbl = 0; => 可空子序列
     int temp = 0;
     for (int i = mid - 1; i >= l; --i)
     {
@@ -25,7 +25,7 @@ int MCSS(int a[], int l, int r)
         if (temp > mbl)
             mbl = temp;
     }
-    int mbr = min;
+    int mbr = min; //int mbr = 0 => 可空子序列
     int temp2 = 0;
     for (int i = mid; i <= r; ++i)
     {
